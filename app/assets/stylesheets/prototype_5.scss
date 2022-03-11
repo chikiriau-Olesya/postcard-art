@@ -1,0 +1,92 @@
+body.prototypes_show {
+  width: 100%;
+  background-color: #343434;
+}
+
+.wrapper {
+  background-color: black;
+  width: 98%;
+  //height: 10vw;
+  margin: 20px 12px;
+  border-radius: 20px;
+}
+
+.prototype_5 {
+  display: flex;
+  position: relative;
+  perspective: 2000px;
+
+  background-color: black;
+  width: 100%;
+  margin: 0 auto;
+  margin: 1vw;
+  border-radius: 20px;
+  //margin: 0 auto;
+
+  .frame {
+    // position: relative;
+    // margin: auto;
+    //overflow: hidden;
+    //border-radius: 20px;
+    //overflow: hidden;
+  }
+
+  #flip-card {
+    width: 400px;
+    max-width: 400px;
+    min-width: 400px;
+    height: 700px;
+
+    text-align: center;
+    margin: 4vw 35vw;
+    position: absolute;
+    transition: all 1s ease-in-out;
+    transform-style: preserve-3d;
+  }
+  .do-flip {
+    -o-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+
+  #flip-card .flip-card-front,
+  #flip-card .flip-card-back {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    position: absolute;
+    backface-visibility: hidden;
+    z-index: 2;
+    box-shadow: 2px 4px 12px 2px rgba(133, 133, 133, 0.2);
+  }
+
+  #flip-card .flip-card-front {
+    background: #fff500;
+    overflow: hidden;
+  }
+
+  #flip-card .flip-card-back {
+    background: grey;
+    transform: rotateY(180deg);
+  }
+
+  .button {
+    //position: absolute;
+    //bottom: 5vw;
+    width: 200px;
+    height: 32px;
+    border-radius: 32px;
+    background-color: grey;
+  }
+
+  .div__circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background-color: #c4c4c4;
+    border: 4px solid orange;
+    position: absolute;
+    z-index: 100;
+  }
+}
