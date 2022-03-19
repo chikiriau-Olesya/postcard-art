@@ -1,0 +1,207 @@
+body.prototypes_show {
+  width: 100%;
+  background-color: #343434;
+}
+
+.wrapper {
+  background-color: black;
+  width: 98%;
+  margin: 20px 12px;
+  border-radius: 20px;
+}
+
+.prototype_7 {
+  display: flex;
+  position: relative;
+  perspective: 2000px;
+
+  background-color: black;
+  width: 100%;
+  margin: 0 auto;
+  margin: 1vw;
+  border-radius: 20px;
+
+  #flip-card {
+    width: 400px;
+    max-width: 400px;
+    min-width: 400px;
+    height: 700px;
+
+    text-align: center;
+    margin: 3vw 35vw;
+    position: absolute;
+    transition: all 1s ease-in-out;
+    transform-style: preserve-3d;
+  }
+
+  .do-flip {
+    -o-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+
+  #flip-card .flip-card-front,
+  #flip-card .flip-card-back {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    position: absolute;
+    backface-visibility: hidden;
+    z-index: 2;
+    box-shadow: 2px 4px 12px 2px rgba(133, 133, 133, 0.2);
+  }
+
+  #flip-card .flip-card-front {
+    background: #516180;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  #flip-card .flip-card-back {
+    background: #f9f4f4;
+    transform: rotateY(180deg);
+  }
+
+  //textes
+
+  .topNote,
+  .bottomNote {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+
+    text-align: center;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+  }
+
+  .topNote {
+    top: 20px;
+  }
+
+  .bottomNote {
+    bottom: 0;
+    margin-bottom: 20px;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .flip-card-back_title {
+    margin: 24px 12px;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 80px;
+    line-height: 100%;
+
+    text-align: center;
+    letter-spacing: -0.09em;
+    text-transform: uppercase;
+
+    color: #010101;
+  }
+
+  .flip-card-back_paragraph {
+    margin: 56px 12px;
+    height: 60%;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+
+    color: #010101;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .flip-card-back_btn {
+    margin: 0 12px 24px 12px;
+    padding: 12px;
+    background: #e9e9e9;
+    border-radius: 32px;
+
+    font-size: 24px;
+    font-family: 'Inter';
+    font-weight: 600;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #010101;
+
+    cursor: pointer;
+    &:hover {
+      transform: scale(0.98);
+      transition: all 0.3s ease-in-out;
+      opacity: 0.8;
+    }
+  }
+
+  ////generative part
+  .wolf_row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 32px;
+    justify-content: center;
+
+    .wolf {
+      //background-color: blue;
+      width: 108px;
+      height: 108px;
+      border-radius: 12px;
+      margin: 8px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &.wolf-black {
+        background-image: image-url('wolf-black.svg');
+      }
+      &.wolf-lavanda {
+        background-image: image-url('wolf-lavanda.svg');
+      }
+      &.wolf-yellow {
+        background-image: image-url('wolf-yellow.svg');
+      }
+      &.wolf-green {
+        background-image: image-url('wolf-green.svg');
+      }
+    }
+  }
+
+  .phrase {
+    position: absolute;
+    top: 36%;
+    padding: 12px;
+    margin: 12px;
+    border-radius: 20px;
+
+    background-color: #f0f0f0;
+    color: #516180;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+  }
+}
