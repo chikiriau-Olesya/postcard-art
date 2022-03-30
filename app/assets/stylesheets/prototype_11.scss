@@ -53,7 +53,7 @@ body.prototypes_show {
   }
 
   #flip-card .flip-card-front {
-    background: #1a1799;
+    background: #9d7ae8;
     overflow: hidden;
     cursor: pointer;
   }
@@ -151,25 +151,34 @@ body.prototypes_show {
   }
 
   .card-textBlock {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 90%;
-    height: 166px;
-    margin: 0 auto;
-    margin-top: 60%;
-    background-image: image-url('spinTitle.svg');
-    border-radius: 12px;
-    position: fixed;
-    left: 5.5%;
-    top: 4%;
-    z-index: 9999;
-  }
-
-  .circle {
-    mix-blend-mode: difference;
-    border-radius: 100%;
-    background-image: image-url('circle.png');
-    z-index: 0;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h2 {
+      font-family: 'Inter';
+      font-weight: 500;
+      font-size: 88px;
+      line-height: 100%;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-align: left;
+      margin: 0 auto;
+      margin-top: 96px;
+      width: 94%;
+    }
+    p {
+      font-weight: 500;
+      text-align: left;
+      font-size: 24px;
+      line-height: 100%;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0 auto;
+      margin-bottom: 96px;
+      width: 94%;
+    }
   }
 }

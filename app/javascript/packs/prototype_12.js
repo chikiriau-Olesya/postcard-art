@@ -1,7 +1,7 @@
 import { getRandomArbitrary, flipCard, sample } from '../containers/basic.js'
-import { colors, bc, title } from '../containers/bcGenerator.js'
 import html2canvas from 'html2canvas'
 const prototypeClass = 'prototype_12'
+const speed = 2
 
 function generateHash() {
   const symbols = ['a', 'b', 'c', 'd', 'e', 'f', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = document.createElement('p')
     text.classList.add('flip-card-back_paragraph')
     text.innerHTML =
-      'Желаю продолжать творить и вытворять те фантастические вещи, что ты делаешь каждый день. Пускай все «игры» со шрифтами останутся только в этой открытке.'
+      'Мыслить мысли, конечно, хорошо, но не забывай, что ты можешь повлиять только на момент в настоящем. Желаю, чтобы у такой прекрасной булочки все сложилось'
     text.contentEditable = true
     back.appendChild(text)
 
@@ -106,28 +106,47 @@ document.addEventListener('DOMContentLoaded', () => {
     frame.classList.toggle('do-flip')
   }
 
-  /////bcGenerator
-  const type_bc = document.createElement('div')
-  type_bc.classList.add('type_bc')
-  type_bc.classList.add(sample(bc))
-  front.appendChild(type_bc)
-  const type_title = document.createElement('div')
-  type_title.classList.add('type_tittle')
-  type_title.classList.add(sample(title))
-  front.appendChild(type_title)
+  //// Generative Inside Card
+  const textBlock = document.createElement('div')
+  textBlock.classList.add('card-textBlock')
+  front.appendChild(textBlock)
+
+  function placeCirc() {
+    const circle = document.createElement('div')
+    circle.classList.add('circle')
+
+    const top = getRandomArbitrary(-80, 700)
+    const left = getRandomArbitrary(-100, 420)
+    const size = getRandomArbitrary(10, 200)
+
+    circle.style.position = 'absolute'
+    circle.style.width = [size, 'px'].join('')
+    circle.style.height = [size, 'px'].join('')
+    circle.style.top = [top, 'px'].join('')
+    circle.style.left = [left, 'px'].join('')
+
+    front.appendChild(circle)
+  }
+
+  function generateCirc() {
+    for (let i = 0; i < 3; i++) {
+      placeCirc()
+    }
+  }
+  generateCirc()
+  function cycle() {
+    let timeout = getRandomArbitrary(speed * 4, speed * 4)
+    setTimeout(() => placeCirc(), timeout)
+    const cycleTimeout = getRandomArbitrary(speed * 30, speed * 100)
+    setTimeout(() => cycle(), cycleTimeout)
+  }
+  setTimeout(() => cycle(), 3)
 
   ////Settings: reset & download
   const inner = document.getElementsByClassName('settings')[0]
-  const btnBc = document.createElement('div')
-  btnBc.classList.add('secondaryButton')
-  btnBc.innerText = 'Изменить фон'
-  inner.appendChild(btnBc)
-  btnBc.addEventListener('click', () => {
-    front.style.backgroundColor = sample(colors)
-  })
   const btnReset = document.createElement('div')
   btnReset.classList.add('downloadButton')
-  btnReset.innerText = 'Играть шрифтами'
+  btnReset.innerText = 'Сгенерировать открытку'
   inner.appendChild(btnReset)
   btnReset.addEventListener('click', () => {
     window.location.reload(false)

@@ -3,3 +3,23 @@
 <%= render 'form', prototype: @prototype %>
 
 <%= link_to 'Back', prototypes_path %>
+
+<div class="wrapper-container">
+  <h1>ай виш ю</h1>
+
+  <div class="wrapper-container_cards">
+      <% @prototypes.each do |prototype| %>
+          <div class="wrapper-container_cards_inner">
+            <%= link_to '  ', prototype, :class =>"wrapper-container_cards_item" %>
+            <div class="wrapper-container_cards_text">
+            <%#= prototype.description%>
+            <%= link_to 'Edit', edit_prototype_path(prototype) %>
+            <%= link_to 'Destroy', prototype, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+      <% end %>
+  </div>
+
+</div>
+
+  <%= link_to 'New Prototype', new_prototype_path %>

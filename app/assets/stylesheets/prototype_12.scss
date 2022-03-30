@@ -53,7 +53,7 @@ body.prototypes_show {
   }
 
   #flip-card .flip-card-front {
-    background: #ff3d3d;
+    background: #1a1799;
     overflow: hidden;
     cursor: pointer;
   }
@@ -150,118 +150,26 @@ body.prototypes_show {
     }
   }
 
-  ////bcGenerator
-  .type_bc {
-    width: 400px;
-    height: 700px;
+  .card-textBlock {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
-    &.t_medow_bej {
-      background-image: image-url('t_medow_bej.svg');
-    }
-    &.t_medow_black {
-      background-image: image-url('t_medow_black.svg');
-    }
-    &.t_medow_grey {
-      background-image: image-url('t_medow_grey.svg');
-    }
-    &.t_forest_bej {
-      background-image: image-url('t_forest_bej.svg');
-    }
-    &.t_forest_black {
-      background-image: image-url('t_forest_black.svg');
-    }
-    &.t_forest_grey {
-      background-image: image-url('t_forest_grey.svg');
-    }
-
-    &.y_medow_bej {
-      background-image: image-url('y_medow_bej.svg');
-    }
-    &.y_medow_black {
-      background-image: image-url('y_medow_black.svg');
-    }
-    &.y_medow_grey {
-      background-image: image-url('y_medow_grey.svg');
-    }
-    &.y_waste_bej {
-      background-image: image-url('y_waste_bej.svg');
-    }
-    &.y_waste_black {
-      background-image: image-url('y_waste_black.svg');
-    }
-    &.y_waste_grey {
-      background-image: image-url('y_waste_grey.svg');
-    }
-
-    &.p_medow_bej {
-      background-image: image-url('p_medow_bej.svg');
-    }
-    &.p_medow_black {
-      background-image: image-url('p_medow_black.svg');
-    }
-    &.p_medow_grey {
-      background-image: image-url('p_medow_grey.svg');
-    }
-    &.p_flower_bej {
-      background-image: image-url('p_flower_bej.svg');
-    }
-    &.p_flower_black {
-      background-image: image-url('p_flower_black.svg');
-    }
-    &.p_flower_grey {
-      background-image: image-url('p_flower_grey.svg');
-    }
-
-    &.e_medow_bej {
-      background-image: image-url('e_medow_bej.svg');
-    }
-    &.e_medow_black {
-      background-image: image-url('e_medow_black.svg');
-    }
-    &.e_medow_grey {
-      background-image: image-url('e_medow_grey.svg');
-    }
-    &.e_gracier_bej {
-      background-image: image-url('e_gracier_bej.svg');
-    }
-    &.e_gracier_black {
-      background-image: image-url('e_gracier_black.svg');
-    }
-    &.e_gracier_grey {
-      background-image: image-url('e_gracier_grey.svg');
-    }
+    width: 90%;
+    height: 166px;
+    margin: 0 auto;
+    margin-top: 60%;
+    background-image: image-url('spinTitle.svg');
+    border-radius: 12px;
+    position: fixed;
+    left: 5.5%;
+    top: 4%;
+    z-index: 9999;
   }
 
-  .type_tittle {
-    width: 320px;
-    height: 80px;
-    top: 43%;
-    left: 10%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
-    &.type_1 {
-      background-image: image-url('type_1.svg');
-    }
-    &.type_2 {
-      background-image: image-url('type_2.svg');
-    }
-    &.type_3 {
-      background-image: image-url('type_3.svg');
-    }
-    &.type_4 {
-      background-image: image-url('type_4.svg');
-    }
-    &.type_5 {
-      background-image: image-url('type_5.svg');
-    }
-    &.type_6 {
-      background-image: image-url('type_6.svg');
-    }
+  .circle {
+    mix-blend-mode: difference;
+    border-radius: 100%;
+    background-image: image-url('circle.png');
+    z-index: 0;
   }
 }
