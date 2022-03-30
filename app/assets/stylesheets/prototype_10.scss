@@ -10,7 +10,7 @@ body.prototypes_show {
   border-radius: 20px;
 }
 
-.prototype_9 {
+.prototype_10 {
   display: flex;
   position: relative;
   perspective: 2000px;
@@ -53,6 +53,7 @@ body.prototypes_show {
   }
 
   #flip-card .flip-card-front {
+    background: #9d7ae8;
     overflow: hidden;
     cursor: pointer;
   }
@@ -63,6 +64,7 @@ body.prototypes_show {
   }
 
   //textes
+
   .topNote,
   .bottomNote {
     text-align: center;
@@ -83,7 +85,7 @@ body.prototypes_show {
       line-height: 100%;
       color: #252525;
 
-      background-color: #ffffff;
+      background-color: #f0f0f0;
       padding: 10px 24px;
       border-radius: 24px;
     }
@@ -148,86 +150,35 @@ body.prototypes_show {
     }
   }
 
-  ////generative part
-  .block_item {
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-    .item {
-      position: relative;
+  .card-textBlock {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h2 {
+      font-family: 'Inter';
+      font-weight: 500;
+      font-size: 88px;
+      line-height: 100%;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-align: left;
+      margin: 0 auto;
+      margin-top: 96px;
+      width: 94%;
     }
-  }
-  .item {
-    z-index: -1;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
-    &.world-bread {
-      background-image: image-url('world-bread.png');
-    }
-    &.world-broccoli {
-      background-image: image-url('world-broccoli.png');
-    }
-    &.world-cake {
-      background-image: image-url('world-cake.png');
-    }
-    &.world-cucumber {
-      background-image: image-url('world-cucumber.png');
-    }
-    &.world-lapsha {
-      background-image: image-url('world-lapsha.png');
-    }
-    &.world-mu {
-      background-image: image-url('world-mu.png');
-    }
-    &.world-culuchka {
-      background-image: image-url('world-culuchka.png');
-    }
-    &.world-line {
-      background-image: image-url('world-line.png');
-    }
-    &.world-star {
-      background-image: image-url('world-star.png');
-    }
-  }
-
-  .flip-card-front {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
-    &.world-sky {
-      background-image: image-url('world-sky.png');
-    }
-    &.world-heart {
-      background-image: image-url('world-heart.png');
-    }
-    &.world-garden {
-      background-image: image-url('world-garden.png');
-    }
-    &.world-field {
-      background-image: image-url('world-field.png');
-    }
-    &.world-paddle {
-      background-image: image-url('world-paddle.png');
-    }
-  }
-
-  .phrase {
-    position: absolute;
-    top: 38%;
-    left: 8%;
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
-    &.phrase_1 {
-      background-image: image-url('phrase_1.svg');
-      width: 23vw;
-      height: 10.56vw;
+    p {
+      font-weight: 500;
+      text-align: left;
+      font-size: 24px;
+      line-height: 100%;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0 auto;
+      margin-bottom: 96px;
+      width: 94%;
     }
   }
 }

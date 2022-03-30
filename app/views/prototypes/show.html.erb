@@ -1,2 +1,13 @@
-<%= javascript_pack_tag "prototype_#{@prototype.id}" %>
-<div class="prototype_<%= @prototype.id %>"></div>
+<div class="inner">
+  <div class="textSide">
+    <p>Особое послание на обороте</p>
+    <p>© 2022, Ай виш ю — генератор креативных открыток </p>
+  </div>
+  <%= javascript_pack_tag "prototype_#{@prototype.id}" %>
+  <div class="prototype_<%= @prototype.id %>"></div>
+  <div class="rightSide">
+        <div class="mark">❤</div>
+        <div class="settings">
+        </div>
+  </div>
+</div>

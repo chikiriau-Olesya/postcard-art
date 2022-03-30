@@ -1,47 +1,6 @@
 import { getRandomArbitrary, flipCard, sample } from '../containers/basic.js'
 import html2canvas from 'html2canvas'
-
-const prototypeClass = 'prototype_8'
-const speed = 4
-const bcColors = ['wolf-black', 'wolf-lavanda', 'wolf-yellow', 'wolf-green']
-const phrases = [
-  '💕 🌟 🍀',
-  '💅 🎾 💗',
-  '🤙 🎾 🌟',
-  '🏖 🕺 🍀',
-  '🗽 💗 ✌',
-  '🍀 🌸 🌞',
-  'любви',
-  'счастья',
-  'здоровья',
-  'ментального',
-  '🗽 💚 👾',
-  '⛅ 💎 👐',
-  '💃 💶 💕',
-  'денег побольше',
-  'изобилия',
-  'солнца',
-  'отпуск',
-  'отдых',
-  'сон',
-  '🦋 🌸 🍃',
-  '⚡ 🏝 💙️',
-  '🖖 🍾 💶',
-  '🎉 ✌ 🌞',
-  'есть и не толстеть',
-  'истинных друзей',
-  'отношений',
-  'слушать себя',
-  'дать отсюда деру',
-  'крутых котлег',
-  'любимых проектов',
-  'работы в кайф',
-  'угарать',
-  'иронизировать',
-  'быть на чиле',
-  'все успеть',
-  'успеть в дедлайн'
-]
+const prototypeClass = 'prototype_10'
 
 function generateHash() {
   const symbols = ['a', 'b', 'c', 'd', 'e', 'f', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -55,7 +14,8 @@ function generateHash() {
 
 function generateImage() {
   return new Promise((resolve, reject) => {
-    const container = document.getElementsByClassName('prototype_8')[0]
+    const container = document.getElementsByClassName('prototype_10')[0]
+
     html2canvas(container).then((canvas) => {
       canvas.style.position = 'absolute'
       canvas.style.left = '-99999px'
@@ -74,9 +34,9 @@ function downloadImage() {
   link.download = `Postcard–${generateHash()}.png`
   link.href = imageData
   link.click()
-  //link.remove()
+  link.remove()
 
-  //canvas.remove()
+  canvas.remove()
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -111,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = document.createElement('p')
     text.classList.add('flip-card-back_paragraph')
     text.innerHTML =
-      'Желаю всего самого-самого на этом свете, ведь ты такой прекрасный человек. Все для тебя: рассветы и даже туманы'
+      'Желаю научиться этому великому искусству. Ты у себя один, а проблемы нерешаемых в этой жизни нет'
     text.contentEditable = true
     back.appendChild(text)
 
@@ -145,38 +105,15 @@ document.addEventListener('DOMContentLoaded', () => {
     frame.classList.toggle('do-flip')
   }
 
-  //// Generative Inside Card
-  function placeRect() {
-    const phrase = sample(phrases)
-    const textElement = document.createElement('div')
-    textElement.classList.add('phrase')
-    textElement.innerText = phrase
-
-    const top = getRandomArbitrary(-80, 700)
-    const left = getRandomArbitrary(-100, 420)
-
-    textElement.style.position = 'absolute'
-    textElement.style.top = [top, 'px'].join('')
-    textElement.style.left = [left, 'px'].join('')
-
-    front.appendChild(textElement)
-  }
-
-  function generateRectagles() {
-    for (let i = 0; i < 400; i++) {
-      placeRect()
-    }
-  }
-
-  function cycle() {
-    //const times = getRandomArbitrary(1, 3)
-    let timeout = getRandomArbitrary(speed * 2, speed * 4)
-    setTimeout(() => placeRect(), timeout)
-    const cycleTimeout = getRandomArbitrary(speed * 30, speed * 100)
-    setTimeout(() => cycle(), cycleTimeout)
-  }
-
-  setTimeout(() => cycle(), 3)
+  const textBlock = document.createElement('div')
+  textBlock.classList.add('card-textBlock')
+  front.appendChild(textBlock)
+  const title = document.createElement('h2')
+  title.innerHTML = 'быть на чиле.'
+  textBlock.appendChild(title)
+  const paragraph = document.createElement('p')
+  paragraph.innerHTML = '*настолько, чтобы не переносить висячие предоги'
+  textBlock.appendChild(paragraph)
 
   ////Settings: reset & download
   const inner = document.getElementsByClassName('settings')[0]
@@ -187,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
   btnReset.addEventListener('click', () => {
     window.location.reload(false)
   })
-
   const button = document.createElement('div')
   button.classList.add('downloadButton')
   button.innerText = 'Скачать'

@@ -1,47 +1,7 @@
 import { getRandomArbitrary, flipCard, sample } from '../containers/basic.js'
+import { colors, bc, title } from '../containers/bcGenerator.js'
 import html2canvas from 'html2canvas'
-
-const prototypeClass = 'prototype_8'
-const speed = 4
-const bcColors = ['wolf-black', 'wolf-lavanda', 'wolf-yellow', 'wolf-green']
-const phrases = [
-  '💕 🌟 🍀',
-  '💅 🎾 💗',
-  '🤙 🎾 🌟',
-  '🏖 🕺 🍀',
-  '🗽 💗 ✌',
-  '🍀 🌸 🌞',
-  'любви',
-  'счастья',
-  'здоровья',
-  'ментального',
-  '🗽 💚 👾',
-  '⛅ 💎 👐',
-  '💃 💶 💕',
-  'денег побольше',
-  'изобилия',
-  'солнца',
-  'отпуск',
-  'отдых',
-  'сон',
-  '🦋 🌸 🍃',
-  '⚡ 🏝 💙️',
-  '🖖 🍾 💶',
-  '🎉 ✌ 🌞',
-  'есть и не толстеть',
-  'истинных друзей',
-  'отношений',
-  'слушать себя',
-  'дать отсюда деру',
-  'крутых котлег',
-  'любимых проектов',
-  'работы в кайф',
-  'угарать',
-  'иронизировать',
-  'быть на чиле',
-  'все успеть',
-  'успеть в дедлайн'
-]
+const prototypeClass = 'prototype_12'
 
 function generateHash() {
   const symbols = ['a', 'b', 'c', 'd', 'e', 'f', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -55,7 +15,8 @@ function generateHash() {
 
 function generateImage() {
   return new Promise((resolve, reject) => {
-    const container = document.getElementsByClassName('prototype_8')[0]
+    const container = document.getElementsByClassName('prototype_12')[0]
+
     html2canvas(container).then((canvas) => {
       canvas.style.position = 'absolute'
       canvas.style.left = '-99999px'
@@ -74,9 +35,9 @@ function downloadImage() {
   link.download = `Postcard–${generateHash()}.png`
   link.href = imageData
   link.click()
-  //link.remove()
+  link.remove()
 
-  //canvas.remove()
+  canvas.remove()
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -111,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = document.createElement('p')
     text.classList.add('flip-card-back_paragraph')
     text.innerHTML =
-      'Желаю всего самого-самого на этом свете, ведь ты такой прекрасный человек. Все для тебя: рассветы и даже туманы'
+      'Желаю продолжать творить и вытворять те фантастические вещи, что ты делаешь каждый день. Пускай все «игры» со шрифтами останутся только в этой открытке.'
     text.contentEditable = true
     back.appendChild(text)
 
@@ -145,49 +106,32 @@ document.addEventListener('DOMContentLoaded', () => {
     frame.classList.toggle('do-flip')
   }
 
-  //// Generative Inside Card
-  function placeRect() {
-    const phrase = sample(phrases)
-    const textElement = document.createElement('div')
-    textElement.classList.add('phrase')
-    textElement.innerText = phrase
-
-    const top = getRandomArbitrary(-80, 700)
-    const left = getRandomArbitrary(-100, 420)
-
-    textElement.style.position = 'absolute'
-    textElement.style.top = [top, 'px'].join('')
-    textElement.style.left = [left, 'px'].join('')
-
-    front.appendChild(textElement)
-  }
-
-  function generateRectagles() {
-    for (let i = 0; i < 400; i++) {
-      placeRect()
-    }
-  }
-
-  function cycle() {
-    //const times = getRandomArbitrary(1, 3)
-    let timeout = getRandomArbitrary(speed * 2, speed * 4)
-    setTimeout(() => placeRect(), timeout)
-    const cycleTimeout = getRandomArbitrary(speed * 30, speed * 100)
-    setTimeout(() => cycle(), cycleTimeout)
-  }
-
-  setTimeout(() => cycle(), 3)
+  /////bcGenerator
+  const type_bc = document.createElement('div')
+  type_bc.classList.add('type_bc')
+  type_bc.classList.add(sample(bc))
+  front.appendChild(type_bc)
+  const type_title = document.createElement('div')
+  type_title.classList.add('type_tittle')
+  type_title.classList.add(sample(title))
+  front.appendChild(type_title)
 
   ////Settings: reset & download
   const inner = document.getElementsByClassName('settings')[0]
+  const btnBc = document.createElement('div')
+  btnBc.classList.add('secondaryButton')
+  btnBc.innerText = 'Изменить фон'
+  inner.appendChild(btnBc)
+  btnBc.addEventListener('click', () => {
+    front.style.backgroundColor = sample(colors)
+  })
   const btnReset = document.createElement('div')
   btnReset.classList.add('downloadButton')
-  btnReset.innerText = 'Сгенерировать открытку'
+  btnReset.innerText = 'Играть шрифтами'
   inner.appendChild(btnReset)
   btnReset.addEventListener('click', () => {
     window.location.reload(false)
   })
-
   const button = document.createElement('div')
   button.classList.add('downloadButton')
   button.innerText = 'Скачать'

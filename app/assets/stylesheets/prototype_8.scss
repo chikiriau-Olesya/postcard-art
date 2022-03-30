@@ -3,23 +3,25 @@ body.prototypes_show {
   background-color: #343434;
 }
 
-.wrapper {
-  background-color: black;
-  width: 98%;
-  margin: 20px 12px;
-  border-radius: 20px;
-}
+// .wrapper {
+//   background-color: black;
+//   width: 98%;
+//   margin: 20px 12px;
+//   border-radius: 20px;
+// }
 
 .prototype_8 {
   display: flex;
   position: relative;
   perspective: 2000px;
-
-  background-color: black;
-  width: 100%;
-  margin: 0 auto;
-  margin: 1vw;
   border-radius: 20px;
+
+  width: 400px;
+  max-width: 400px;
+  min-width: 400px;
+  height: 700px;
+  text-align: center;
+  text-align: center;
 
   #flip-card {
     width: 400px;
@@ -28,8 +30,6 @@ body.prototypes_show {
     height: 700px;
 
     text-align: center;
-    margin: 3vw 35vw;
-    position: absolute;
     transition: all 1s ease-in-out;
     transform-style: preserve-3d;
   }
@@ -53,7 +53,7 @@ body.prototypes_show {
   }
 
   #flip-card .flip-card-front {
-    background: #f18360;
+    background: #b1b2e6;
     overflow: hidden;
     cursor: pointer;
   }
@@ -67,35 +67,34 @@ body.prototypes_show {
 
   .topNote,
   .bottomNote {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 100%;
-
     text-align: center;
     letter-spacing: -0.01em;
     text-transform: uppercase;
 
-    color: #ffffff;
     z-index: 99999;
     display: flex;
     justify-content: center;
-    //width: 100%;
+    width: 100%;
     position: absolute;
-    padding: 8px;
-    border-radius: 20px;
-    background-color: #040404;
-  }
 
-  .topNote {
-    top: 20px;
+    & p {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 100%;
+      color: #ffffff;
+
+      background-color: #252525;
+      padding: 10px 24px;
+      border-radius: 24px;
+    }
   }
 
   .bottomNote {
     bottom: 0;
-    margin-bottom: 20px;
     align-items: flex-end;
+    justify-content: center;
   }
 
   .flip-card-back_title {
@@ -116,15 +115,11 @@ body.prototypes_show {
     margin: 56px 12px;
     height: 60%;
     font-family: 'Inter';
-    font-weight: 600;
+    font-weight: 500;
     font-size: 24px;
-    line-height: 100%;
-
-    align-items: center;
-    text-align: center;
-    letter-spacing: -0.07em;
-    text-transform: uppercase;
-
+    line-height: 120%;
+    text-align: left;
+    letter-spacing: -0.02em;
     color: #010101;
 
     &:focus-visible {

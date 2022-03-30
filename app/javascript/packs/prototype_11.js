@@ -1,47 +1,7 @@
 import { getRandomArbitrary, flipCard, sample } from '../containers/basic.js'
 import html2canvas from 'html2canvas'
-
-const prototypeClass = 'prototype_8'
-const speed = 4
-const bcColors = ['wolf-black', 'wolf-lavanda', 'wolf-yellow', 'wolf-green']
-const phrases = [
-  '💕 🌟 🍀',
-  '💅 🎾 💗',
-  '🤙 🎾 🌟',
-  '🏖 🕺 🍀',
-  '🗽 💗 ✌',
-  '🍀 🌸 🌞',
-  'любви',
-  'счастья',
-  'здоровья',
-  'ментального',
-  '🗽 💚 👾',
-  '⛅ 💎 👐',
-  '💃 💶 💕',
-  'денег побольше',
-  'изобилия',
-  'солнца',
-  'отпуск',
-  'отдых',
-  'сон',
-  '🦋 🌸 🍃',
-  '⚡ 🏝 💙️',
-  '🖖 🍾 💶',
-  '🎉 ✌ 🌞',
-  'есть и не толстеть',
-  'истинных друзей',
-  'отношений',
-  'слушать себя',
-  'дать отсюда деру',
-  'крутых котлег',
-  'любимых проектов',
-  'работы в кайф',
-  'угарать',
-  'иронизировать',
-  'быть на чиле',
-  'все успеть',
-  'успеть в дедлайн'
-]
+const prototypeClass = 'prototype_11'
+const speed = 2
 
 function generateHash() {
   const symbols = ['a', 'b', 'c', 'd', 'e', 'f', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -55,7 +15,8 @@ function generateHash() {
 
 function generateImage() {
   return new Promise((resolve, reject) => {
-    const container = document.getElementsByClassName('prototype_8')[0]
+    const container = document.getElementsByClassName('prototype_11')[0]
+
     html2canvas(container).then((canvas) => {
       canvas.style.position = 'absolute'
       canvas.style.left = '-99999px'
@@ -74,9 +35,9 @@ function downloadImage() {
   link.download = `Postcard–${generateHash()}.png`
   link.href = imageData
   link.click()
-  //link.remove()
+  link.remove()
 
-  //canvas.remove()
+  canvas.remove()
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -111,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = document.createElement('p')
     text.classList.add('flip-card-back_paragraph')
     text.innerHTML =
-      'Желаю всего самого-самого на этом свете, ведь ты такой прекрасный человек. Все для тебя: рассветы и даже туманы'
+      'Мыслить мысли, конечно, хорошо, но не забывай, что ты можешь повлиять только на момент в настоящем. Желаю, чтобы у такой прекрасной булочки все сложилось'
     text.contentEditable = true
     back.appendChild(text)
 
@@ -146,36 +107,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //// Generative Inside Card
-  function placeRect() {
-    const phrase = sample(phrases)
-    const textElement = document.createElement('div')
-    textElement.classList.add('phrase')
-    textElement.innerText = phrase
+  const textBlock = document.createElement('div')
+  textBlock.classList.add('card-textBlock')
+  front.appendChild(textBlock)
+
+  function placeCirc() {
+    const circle = document.createElement('div')
+    circle.classList.add('circle')
 
     const top = getRandomArbitrary(-80, 700)
     const left = getRandomArbitrary(-100, 420)
+    const size = getRandomArbitrary(10, 200)
 
-    textElement.style.position = 'absolute'
-    textElement.style.top = [top, 'px'].join('')
-    textElement.style.left = [left, 'px'].join('')
+    circle.style.position = 'absolute'
+    circle.style.width = [size, 'px'].join('')
+    circle.style.height = [size, 'px'].join('')
+    circle.style.top = [top, 'px'].join('')
+    circle.style.left = [left, 'px'].join('')
 
-    front.appendChild(textElement)
+    front.appendChild(circle)
   }
 
-  function generateRectagles() {
-    for (let i = 0; i < 400; i++) {
-      placeRect()
+  function generateCirc() {
+    for (let i = 0; i < 3; i++) {
+      placeCirc()
     }
   }
-
+  generateCirc()
   function cycle() {
-    //const times = getRandomArbitrary(1, 3)
-    let timeout = getRandomArbitrary(speed * 2, speed * 4)
-    setTimeout(() => placeRect(), timeout)
+    let timeout = getRandomArbitrary(speed * 4, speed * 4)
+    setTimeout(() => placeCirc(), timeout)
     const cycleTimeout = getRandomArbitrary(speed * 30, speed * 100)
     setTimeout(() => cycle(), cycleTimeout)
   }
-
   setTimeout(() => cycle(), 3)
 
   ////Settings: reset & download
@@ -187,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
   btnReset.addEventListener('click', () => {
     window.location.reload(false)
   })
-
   const button = document.createElement('div')
   button.classList.add('downloadButton')
   button.innerText = 'Скачать'

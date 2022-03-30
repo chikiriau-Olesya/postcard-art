@@ -1,9 +1,206 @@
 html,
 body {
   height: 100%;
+  background-color: #343434;
+  margin: 0;
 }
 
-body.prototypes_show {
+.header {
   display: flex;
-  margin: 0;
+  width: 100%;
+  justify-content: space-between;
+  padding: 20px 0 16px;
+
+  a {
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    padding-left: 28px;
+
+    &:hover {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+  }
+
+  div {
+    display: flex;
+    padding-right: 28px;
+
+    a {
+      padding: 0;
+      margin-left: 28px;
+    }
+  }
+}
+
+.wrapper-container {
+  background-color: black;
+  width: 98%;
+  margin: 0 auto;
+  border-radius: 20px;
+  color: white;
+
+  h1 {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 272px;
+    line-height: 100%;
+    text-align: center;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 auto;
+    padding-top: 40px;
+  }
+
+  .wrapper-container_cards {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 96%;
+
+    .wrapper-container_cards_inner {
+      width: 23%;
+      height: 511px;
+      border-radius: 24px;
+      //background-color: grey;
+      margin-right: 2.5%;
+      margin-bottom: 50px;
+      &:nth-of-type(4n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(2n) a:hover {
+        transform: rotate(1.01deg) scale(1.05);
+      }
+      &:nth-of-type(1) a {
+        background-image: image-url('v1.jpg');
+      }
+
+      a {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: block;
+        width: 100%;
+        height: 511px;
+        border-radius: 24px;
+        margin-bottom: 12px;
+        &:hover {
+          transform: rotate(-1.03deg) scale(1.05);
+          transition: all 0.3s ease-out;
+          box-shadow: 0px 0px 32px rgba(255, 247, 247, 0.24);
+        }
+      }
+
+      .wrapper-container_cards_text {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+
+        text-align: center;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.wrapper {
+  background-color: black;
+  width: 98%;
+  margin: 20px 12px;
+  border-radius: 20px;
+}
+
+.inner {
+  display: flex;
+  width: 95%;
+  margin: 0 auto;
+  background-color: #010101;
+  padding: 24px;
+  border-radius: 20px;
+  justify-content: space-between;
+}
+
+.textSide {
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  p {
+    color: white;
+    font-size: 16px;
+    font-family: 'Inter';
+    font-weight: 500;
+    margin: 0;
+
+    &:nth-of-type(2) {
+      color: #848484;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}
+
+.rightSide {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .mark {
+    font-family: 'Inter';
+    font-weight: 600;
+    color: white;
+    text-align: right;
+  }
+
+  .settings {
+  }
+}
+
+.secondaryButton {
+  font-family: 'Inter';
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  color: #ececec;
+  padding: 24px;
+  background-color: #8b8a8a;
+  border-radius: 32px;
+  cursor: pointer;
+
+  text-align: center;
+  margin-top: 12px;
+}
+
+.downloadButton {
+  font-family: 'Inter';
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+  color: #606060;
+  padding: 24px;
+  background-color: white;
+  border-radius: 32px;
+  cursor: pointer;
+
+  text-align: center;
+  margin-top: 12px;
 }

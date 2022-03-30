@@ -25,3 +25,25 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+
+
+<div class="wrapper-container">
+  <h1>ай виш ю</h1>
+
+  <div class="wrapper-container_cards">
+    <% @prototypes.each do |prototype| %>
+      <div class="wrapper-container_cards_item">
+          <%= link_to 'Show', prototype %>
+            <%= link_to 'Show', :class => "wrapper-container_cards_item", prototype %>
+          <%= prototype.name %>
+          <%= prototype.description %>
+          <%#= link_to 'Edit', edit_prototype_path(prototype) %>
+          <%#= link_to 'Destroy', prototype, method: :delete, data: { confirm: 'Are you sure?' } %>-->
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+  <%= link_to 'New Prototype', new_prototype_path %>
